@@ -32,10 +32,12 @@ Image producer and CI: **[xgic/wagtail-dev](https://github.com/xgic/wagtail-dev)
 ```bash
 xgic --version
 xgic wagtail info
-wagtail start mysite .
+xgic wagtail setup
 ```
 
-Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). After `wagtail start`, keep extra site packages in the generated project.
+`xgic wagtail setup` is idempotent: it writes `create-wagtail-config.json` / `.devcontainer/.env` when missing, runs `wagtail start` if there is no site yet, and points Django at **PostgreSQL** (Compose service `postgres`). `wagtail start` alone would leave SQLite in `settings/base.py`; that is not the XGIC default.
+
+Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). After setup, keep extra site packages in the generated project. Refresh JSON Schema IntelliSense with `xgic wagtail schema`.
 
 The first GHCR tag is published from [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`v*` + GitHub Release). Until that tag exists, Compose can build the producer Dockerfile locally from a sibling clone, or wait for `ghcr.io/xgic/wagtail-dev:0.1.0`.
 

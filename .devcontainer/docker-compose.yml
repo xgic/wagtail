@@ -10,6 +10,11 @@ services:
     environment:
       PYTHONDONTWRITEBYTECODE: "1"
       PYTHONUNBUFFERED: "1"
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: ${POSTGRES_USER:-wagtail}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-wagtail}
+      POSTGRES_DB: ${POSTGRES_DB:-wagtail}
     networks:
       - app-network
     ports:

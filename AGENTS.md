@@ -13,6 +13,7 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 
 - Site schema, extensions, and Compose overrides
 - Empty-site start consuming the producer image (official python stand-in until the first GHCR tag)
+- `xgic wagtail setup` for first-run PostgreSQL (not SQLite; not raw `wagtail start` alone)
 - Hybrid Django templates + Next.js later (not this bootstrap)
 
 ## Out of scope
