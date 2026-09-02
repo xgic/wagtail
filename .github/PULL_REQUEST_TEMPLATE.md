@@ -9,5 +9,5 @@
 ## Checklist
 
 - [ ] Public-safe only
-- [ ] Official image pins only (no unpublished GHCR URLs)
+- [ ] Consumes `ghcr.io/xgic/wagtail-dev` when published; no invented GHCR tags
 - [ ] Human UI review before merge to `main`

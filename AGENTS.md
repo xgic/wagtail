@@ -5,19 +5,20 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 ## Product
 
 - **Role:** thin end-user Wagtail **template** (GitHub Template)
-- **Pins:** https://github.com/xgic/wagtail-dev (official Python/Postgres; `wagtail==8.0`)
+- **Producer image:** `ghcr.io/xgic/wagtail-dev` from https://github.com/xgic/wagtail-dev
 - **CLI:** https://github.com/xgic/wagtail-cli (`xgic wagtail …`)
 - **CMS decision:** [ADR-0006](https://github.com/xgic/ai/blob/main/docs/adr/0006-adopt-wagtail.md)
 
 ## Scope
 
 - Site schema, extensions, and Compose overrides
-- Empty-site start on official images
+- Empty-site start consuming the producer image (official python stand-in until the first GHCR tag)
 - Hybrid Django templates + Next.js later (not this bootstrap)
 
 ## Out of scope
 
-- Custom producer GHCR image (deferred)
+- Defining the producer image (that belongs in xgic/wagtail-dev)
+- Inventing a GHCR tag before the producer publishes one
 - Private host defaults
 - Payload CMS template work
 - Measuring empty-site footprint belongs in a dedicated follow-up issue

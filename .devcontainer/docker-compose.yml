@@ -1,7 +1,5 @@
-# Thin template Compose. Official images only.
-# Pins are documented in https://github.com/xgic/wagtail-dev.
-# Do not consume a custom ghcr.io/xgic/wagtail-dev image until that producer
-# publishes one for a measured need.
+# Thin template. Consumes ghcr.io/xgic/wagtail-dev when published.
+# Stand-in: official python base until the producer’s first GHCR tag.
 name: xgic-wagtail
 
 services:
