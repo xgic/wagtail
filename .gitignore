@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+static/
+media/
+
+# Env / secrets
+.env
+.env.*
+*.pem
+db.sqlite3
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary Grok Build status reports — never commit.
+.xgic/
