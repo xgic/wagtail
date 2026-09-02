@@ -18,6 +18,7 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 ## Out of scope
 
 - Defining the producer image (that belongs in xgic/wagtail-dev)
+- Duplicating producer environment pins (Wagtail / `psycopg` in `requirements.txt`)
 - Inventing a GHCR tag before the producer publishes one
 - Private host defaults
 - Payload CMS template work

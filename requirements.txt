@@ -1,3 +1,0 @@
-# Empty-site pins. Match https://github.com/xgic/wagtail-dev.
-wagtail==8.0
-psycopg[binary]>=3.2

@@ -32,9 +32,10 @@ Image producer and CI: **[xgic/wagtail-dev](https://github.com/xgic/wagtail-dev)
 ```bash
 xgic --version
 xgic wagtail info
-uv pip install -r requirements.txt
 wagtail start mysite .
 ```
+
+Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). After `wagtail start`, keep extra site packages in the generated project.
 
 The first GHCR tag is published from [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`v*` + GitHub Release). Until that tag exists, Compose can build the producer Dockerfile locally from a sibling clone, or wait for `ghcr.io/xgic/wagtail-dev:0.1.0`.
 
