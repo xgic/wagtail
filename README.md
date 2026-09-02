@@ -32,7 +32,7 @@ Image producer and CI: **[xgic/wagtail-dev](https://github.com/xgic/wagtail-dev)
 ```bash
 xgic --version
 xgic wagtail info
-python -m pip install -r requirements.txt
+uv pip install -r requirements.txt
 wagtail start mysite .
 ```
 
