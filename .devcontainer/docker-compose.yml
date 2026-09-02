@@ -1,0 +1,49 @@
+# Thin template Compose. Official images only.
+# Pins are documented in https://github.com/xgic/wagtail-dev.
+# Do not consume a custom ghcr.io/xgic/wagtail-dev image until that producer
+# publishes one for a measured need.
+name: xgic-wagtail
+
+services:
+  xgic-wagtail:
+    image: python:3.14-bookworm
+    container_name: xgic-wagtail
+    working_dir: /workspace
+    command: ["sleep", "infinity"]
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    networks:
+      - app-network
+    ports:
+      - "8000:8000"
+    volumes:
+      - ..:/workspace:cached
+    depends_on:
+      postgres:
+        condition: service_healthy
+    stop_grace_period: 5s
+
+  postgres:
+    image: postgres:18-bookworm
+    container_name: xgic-wagtail-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-wagtail}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-wagtail}
+      POSTGRES_DB: ${POSTGRES_DB:-wagtail}
+    networks:
+      - app-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    stop_grace_period: 10s
+
+networks:
+  app-network:
+
+volumes:
+  postgres-data:

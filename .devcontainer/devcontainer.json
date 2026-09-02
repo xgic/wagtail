@@ -1,0 +1,29 @@
+{
+  "name": "XGIC Wagtail",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "xgic-wagtail",
+  "runServices": ["xgic-wagtail", "postgres"],
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Wagtail / Django",
+      "onAutoForward": "notify"
+    }
+  }
+}
