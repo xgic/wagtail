@@ -1,10 +1,9 @@
-# Thin template. Consumes ghcr.io/xgic/wagtail-dev when published.
-# Stand-in: official python base until the producer’s first GHCR tag.
+# Thin template. Consumes ghcr.io/xgic/wagtail-dev (producer release).
 name: xgic-wagtail
 
 services:
   xgic-wagtail:
-    image: python:3.14-bookworm
+    image: ghcr.io/xgic/wagtail-dev:0.1.0
     container_name: xgic-wagtail
     working_dir: /workspace
     command: ["sleep", "infinity"]
