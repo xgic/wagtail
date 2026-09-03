@@ -5,15 +5,15 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 ## Product
 
 - **Role:** thin end-user Wagtail **template** (GitHub Template)
-- **Producer image:** `ghcr.io/xgic/wagtail-dev` from https://github.com/xgic/wagtail-dev
+- **Producer image:** `ghcr.io/xgic/wagtail-dev:0.1.1` from https://github.com/xgic/wagtail-dev
 - **CLI:** https://github.com/xgic/wagtail-cli (`xgic wagtail …`)
 - **CMS decision:** [ADR-0006](https://github.com/xgic/ai/blob/main/docs/adr/0006-adopt-wagtail.md)
 
 ## Scope
 
 - Site schema, extensions, and Compose overrides
-- Empty-site start consuming the producer image (official python stand-in until the first GHCR tag)
-- `xgic wagtail setup` for first-run PostgreSQL (not SQLite; not raw `wagtail start` alone)
+- Empty-site start consuming the pinned producer image
+- `xgic wagtail setup` for first-run PostgreSQL (not SQLite; not raw `wagtail start` alone). Setup also inserts `django.contrib.postgres` into generated `INSTALLED_APPS`.
 - Hybrid Django templates + Next.js later (not this bootstrap)
 
 ## Out of scope
