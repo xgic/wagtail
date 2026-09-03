@@ -4,6 +4,7 @@
   "service": "xgic-wagtail",
   "runServices": ["xgic-wagtail", "postgres"],
   "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
   "customizations": {
     "vscode": {
       "extensions": [
