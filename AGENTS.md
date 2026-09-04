@@ -15,6 +15,8 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 - Empty-site start consuming the pinned producer image
 - Dev Container `remoteUser` is `vscode` (image user). Not a `wagtail` OS user.
 - `xgic wagtail setup` for first-run PostgreSQL (not SQLite; not raw `wagtail start` alone). Setup also inserts `django.contrib.postgres` into generated `INSTALLED_APPS`.
+- `xgic wagtail dev` for migrate + `runserver 0.0.0.0:8000`.
+- GitHub remotes: prefer HTTPS (VS Code host credential helper). Producer image installs `openssh-client` for other SSH hosts. Do not copy host private keys.
 - Hybrid Django templates + Next.js later (not this bootstrap)
 
 ## Out of scope
