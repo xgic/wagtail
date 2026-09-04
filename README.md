@@ -32,8 +32,6 @@ Image producer and CI: **[xgic/wagtail-dev](https://github.com/xgic/wagtail-dev)
 3. In the container terminal:
 
 ```bash
-xgic --version
-xgic wagtail info
 xgic wagtail setup
 xgic wagtail dev
 ```
