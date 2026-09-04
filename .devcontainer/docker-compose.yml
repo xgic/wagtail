@@ -3,7 +3,7 @@ name: xgic-wagtail
 
 services:
   xgic-wagtail:
-    image: ghcr.io/xgic/wagtail-dev:0.1.1
+    image: ghcr.io/xgic/wagtail-dev:0.1.2
     container_name: xgic-wagtail
     working_dir: /workspace
     command: ["sleep", "infinity"]
