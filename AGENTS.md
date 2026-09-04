@@ -11,8 +11,9 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 
 ## Scope
 
-- Site schema, extensions, and Compose overrides
 - Empty-site start consuming the pinned producer image
+- Compose overrides only as needed for the empty template
+- Product StreamField / relational models belong in consumer site repositories, not this template
 - Dev Container `remoteUser` is `vscode` (image user). Not a `wagtail` OS user.
 - `xgic wagtail setup` for first-run PostgreSQL (not SQLite; not raw `wagtail start` alone). Setup also inserts `django.contrib.postgres` into generated `INSTALLED_APPS`.
 - `xgic wagtail dev` for migrate + `runserver 0.0.0.0:8000`.
@@ -26,7 +27,8 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 - Inventing a GHCR tag before the producer publishes one
 - Private host defaults
 - Payload CMS template work
-- Measuring empty-site footprint (https://github.com/xgic/wagtail/issues/3); do not start StreamField / relational content models until that gate is accepted
+- StreamField / extra relational content models (this repository stays an empty template)
+- Empty-site footprint: recorded and accepted (https://github.com/xgic/wagtail/issues/3)
 
 ## Rules
 
