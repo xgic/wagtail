@@ -78,12 +78,6 @@ Environment drift wastes more CMS time than missing features. XGIC’s approach:
 
 ---
 
-## Empty-site gate
-
-Record memory and cold-start on a constrained Linux environment **before** adding schema. Do not start StreamField / relational content models in this bootstrap.
-
----
-
 ## XGIC standards
 
 - [BASE-STANDARDS](https://github.com/xgic/ai/blob/main/docs/BASE-STANDARDS-FOR-ORCHESTRATED-REPOS.md)

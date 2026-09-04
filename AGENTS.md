@@ -5,7 +5,7 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 ## Product
 
 - **Role:** thin end-user Wagtail **template** (GitHub Template)
-- **Producer image:** `ghcr.io/xgic/wagtail-dev:0.1.1` from https://github.com/xgic/wagtail-dev
+- **Producer image:** `ghcr.io/xgic/wagtail-dev:0.1.2` from https://github.com/xgic/wagtail-dev
 - **CLI:** https://github.com/xgic/wagtail-cli (`xgic wagtail …`)
 - **CMS decision:** [ADR-0006](https://github.com/xgic/ai/blob/main/docs/adr/0006-adopt-wagtail.md)
 
@@ -26,7 +26,7 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 - Inventing a GHCR tag before the producer publishes one
 - Private host defaults
 - Payload CMS template work
-- Measuring empty-site footprint belongs in a dedicated follow-up issue
+- Measuring empty-site footprint (https://github.com/xgic/wagtail/issues/3); do not start StreamField / relational content models until that gate is accepted
 
 ## Rules
 
