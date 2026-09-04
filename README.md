@@ -41,9 +41,18 @@ xgic wagtail dev
 `xgic wagtail dev` waits for PostgreSQL, runs `migrate --noinput`, then
 `python manage.py runserver 0.0.0.0:8000` (port 8000 forwarded by the Dev Container).
 
-Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). After setup, keep extra site packages in the generated project. Refresh JSON Schema IntelliSense with `xgic wagtail schema`.
+Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). The producer image also installs **XGIC CLI** from PyPI (`xgic-wagtail-cli`, which depends on `xgic-cli`). After setup, keep extra site packages in the generated project. Refresh JSON Schema IntelliSense with `xgic wagtail schema`.
 
-Compose pins `ghcr.io/xgic/wagtail-dev:0.1.1` ([GitHub Release](https://github.com/xgic/wagtail-dev/releases/tag/v0.1.1)).
+Host-only (no Dev Container):
+
+```bash
+uv pip install "xgic-wagtail-cli>=0.1.0"
+```
+
+That pulls `xgic-cli>=0.2.1` from package metadata. Do not list core and
+the module together unless you are pinning an override.
+
+Compose pins `ghcr.io/xgic/wagtail-dev:0.1.2` ([GitHub Release](https://github.com/xgic/wagtail-dev/releases/tag/v0.1.2)).
 
 ---
 
@@ -66,12 +75,6 @@ Environment drift wastes more CMS time than missing features. XGIC’s approach:
 | **AI-operable** | Stable commands in [AGENTS.md](AGENTS.md) |
 | **Clear ownership** | Schema here; image in [wagtail-dev](https://github.com/xgic/wagtail-dev); CLI in [wagtail-cli](https://github.com/xgic/wagtail-cli) |
 | **Open-source rigor** | Apache-2.0, CODEOWNERS, public-safe docs, human-reviewed PRs |
-
----
-
-## Empty-site gate
-
-Record memory and cold-start on a constrained Linux environment **before** adding schema. Do not start StreamField / relational content models in this bootstrap.
 
 ---
 
