@@ -6,12 +6,14 @@
 [![GHCR image](https://img.shields.io/badge/GHCR-wagtail--dev-blue?logo=github)](https://github.com/users/xgic/packages/container/package/wagtail-dev)
 [![Use this template](https://img.shields.io/badge/GitHub-Use_this_template-24292f?logo=github)](https://github.com/xgic/wagtail/generate)
 [![CI](https://github.com/xgic/wagtail/actions/workflows/ci.yml/badge.svg)](https://github.com/xgic/wagtail/actions/workflows/ci.yml)
+[![Wagtail](https://img.shields.io/badge/Wagtail-8.0-2E1F5E?logo=wagtail&logoColor=white)](https://docs.wagtail.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/docs/18/)
 
 ## The optimal way to start Wagtail sites
 
 **For humans and AI coding assistants.**
 
-This repository is XGIC’s **recommended starting point** for new [Wagtail](https://wagtail.org) sites. It gives you a **reproducible Dev Container**, a **pinned multi-arch environment image**, and a **single CLI brand**.
+This repository is XGIC’s **recommended starting point** for new [Wagtail](https://wagtail.org) sites ([docs](https://docs.wagtail.org/)). It gives you a **reproducible Dev Container**, a **pinned multi-arch environment image**, and a **single CLI brand**.
 
 | You want… | You get… |
 |-----------|----------|
@@ -33,9 +35,13 @@ Image producer and CI: **[xgic/wagtail-dev](https://github.com/xgic/wagtail-dev)
 xgic --version
 xgic wagtail info
 xgic wagtail setup
+xgic wagtail dev
 ```
 
 `xgic wagtail setup` is idempotent: it writes `create-wagtail-config.json` / `.devcontainer/.env` when missing, runs `wagtail start` if there is no site yet, points Django at **PostgreSQL** (Compose service `postgres`), and inserts `django.contrib.postgres` into the generated `<project>/settings/base.py` `INSTALLED_APPS` (immediately before `django.contrib.admin`). `wagtail start` alone would leave SQLite in `settings/base.py`; that is not the XGIC default.
+
+`xgic wagtail dev` waits for PostgreSQL, runs `migrate --noinput`, then
+`python manage.py runserver 0.0.0.0:8000` (port 8000 forwarded by the Dev Container).
 
 Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). After setup, keep extra site packages in the generated project. Refresh JSON Schema IntelliSense with `xgic wagtail schema`.
 
