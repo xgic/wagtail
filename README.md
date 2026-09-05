@@ -41,6 +41,12 @@ xgic wagtail dev
 `xgic wagtail dev` waits for PostgreSQL, runs `migrate --noinput`, then
 `python manage.py runserver 0.0.0.0:8000` (port 8000 forwarded by the Dev Container).
 
+The Dev Container mounts the host Docker engine socket. After the producer
+image that ships a Docker CLI is pinned, `docker` / `xgic logs` / `xgic check`
+inside the container talk to that engine (Docker-outside-of-Docker, not
+Docker-in-Docker). `.devcontainer/.env` is written by `xgic wagtail setup`;
+it is expected to be missing on a clean template clone.
+
 Wagtail and `psycopg` ship in `ghcr.io/xgic/wagtail-dev`. Environment pins live in [xgic/wagtail-dev](https://github.com/xgic/wagtail-dev) (`requirements.txt` baked into the image). The producer image also installs **XGIC CLI** from PyPI (`xgic-wagtail-cli`, which depends on `xgic-cli`). After setup, keep extra site packages in the generated project. Refresh JSON Schema IntelliSense with `xgic wagtail schema`.
 
 Host-only (no Dev Container):

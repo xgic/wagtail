@@ -15,7 +15,9 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 - Compose overrides only as needed for the empty template
 - Workspace config is `.devcontainer/create-wagtail-config.json` + `.devcontainer/create-wagtail-config.schema.json` (VS Code validates). Do not add a second config format.
 - Product StreamField / relational models belong in consumer site repositories, not this template
-- Dev Container `remoteUser` is `vscode` (image user). Not a `wagtail` OS user.
+- Dev Container `remoteUser` is `vscode` (image user). Not a `wagtail` OS user. Compose sets `user: "0:0"` so the image entrypoint can align the `docker` group to the mounted engine socket, then exec as `vscode`.
+- Docker-outside-of-Docker: `/var/run/docker.sock` is mounted. The producer image supplies the Docker CLI. Do not enable Docker-in-Docker.
+- Compose identity: `name: xgic-wagtail` plus `XGIC_COMPOSE_PROJECT` / `XGIC_PRIMARY_SERVICE` on the primary service.
 - `xgic wagtail setup` for first-run PostgreSQL (not SQLite; not raw `wagtail start` alone). Setup also inserts `django.contrib.postgres` into generated `INSTALLED_APPS`.
 - `xgic wagtail dev` for migrate + `runserver 0.0.0.0:8000`.
 - GitHub remotes: prefer HTTPS (VS Code host credential helper). Producer image installs `openssh-client` for other SSH hosts. Do not copy host private keys.
