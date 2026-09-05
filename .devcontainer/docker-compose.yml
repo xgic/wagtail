@@ -5,6 +5,9 @@ services:
   xgic-wagtail:
     image: ghcr.io/xgic/wagtail-dev:0.1.2
     container_name: xgic-wagtail
+    # Root so the image entrypoint can align the docker-sock GID, then
+    # exec CMD as vscode. Do not enable Docker-in-Docker.
+    user: "0:0"
     working_dir: /workspace
     command: ["sleep", "infinity"]
     environment:
@@ -15,12 +18,16 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-wagtail}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-wagtail}
       POSTGRES_DB: ${POSTGRES_DB:-wagtail}
+      XGIC_COMPOSE_FILE: .devcontainer/docker-compose.yml
+      XGIC_COMPOSE_PROJECT: xgic-wagtail
+      XGIC_PRIMARY_SERVICE: xgic-wagtail
     networks:
       - app-network
     ports:
       - "8000:8000"
     volumes:
       - ..:/workspace:cached
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       postgres:
         condition: service_healthy
