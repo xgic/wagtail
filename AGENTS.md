@@ -5,7 +5,7 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 ## Product
 
 - **Role:** thin end-user Wagtail **template** (GitHub Template)
-- **Producer image:** `ghcr.io/xgic/wagtail-dev:0.1.2` from https://github.com/xgic/wagtail-dev
+- **Producer image:** `ghcr.io/xgic/wagtail-dev:0.1.3` from https://github.com/xgic/wagtail-dev
 - **CLI:** https://github.com/xgic/wagtail-cli (`xgic wagtail …`)
 - **CMS decision:** [ADR-0006](https://github.com/xgic/ai/blob/main/docs/adr/0006-adopt-wagtail.md)
 

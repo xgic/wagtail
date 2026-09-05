@@ -58,7 +58,7 @@ uv pip install "xgic-wagtail-cli>=0.1.0"
 That pulls `xgic-cli>=0.2.1` from package metadata. Do not list core and
 the module together unless you are pinning an override.
 
-Compose pins `ghcr.io/xgic/wagtail-dev:0.1.2` ([GitHub Release](https://github.com/xgic/wagtail-dev/releases/tag/v0.1.2)).
+Compose pins `ghcr.io/xgic/wagtail-dev:0.1.3` ([GitHub Release](https://github.com/xgic/wagtail-dev/releases/tag/v0.1.3)).
 
 ---
 
