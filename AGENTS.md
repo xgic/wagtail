@@ -13,6 +13,7 @@ Public repository. Follow https://github.com/xgic/ai for multi-repo standards.
 
 - Empty-site start consuming the pinned producer image
 - Compose overrides only as needed for the empty template
+- Workspace config is `.devcontainer/create-wagtail-config.json` + `.devcontainer/create-wagtail-config.schema.json` (VS Code validates). Do not add a second config format.
 - Product StreamField / relational models belong in consumer site repositories, not this template
 - Dev Container `remoteUser` is `vscode` (image user). Not a `wagtail` OS user. Compose sets `user: "0:0"` so the image entrypoint can align the `docker` group to the mounted engine socket, then exec as `vscode`.
 - Docker-outside-of-Docker: `/var/run/docker.sock` is mounted. The producer image supplies the Docker CLI. Do not enable Docker-in-Docker.
