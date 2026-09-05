@@ -3,7 +3,7 @@ name: xgic-wagtail
 
 services:
   xgic-wagtail:
-    image: ghcr.io/xgic/wagtail-dev:0.1.2
+    image: ghcr.io/xgic/wagtail-dev:0.1.3
     container_name: xgic-wagtail
     # Root so the image entrypoint can align the docker-sock GID, then
     # exec CMD as vscode. Do not enable Docker-in-Docker.
